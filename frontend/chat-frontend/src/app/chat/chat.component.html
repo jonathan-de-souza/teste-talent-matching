@@ -1,0 +1,132 @@
+<!--=========================================================-->
+<!-- selected chat -->
+<div class="col-md-6 bg-white ">
+  <div class="chat-message">
+    <ul class="chat">
+      <li class="clearfix" *ngFor="let message of messages" [class.left]="message.user.nickname != user.nickname" [class.right]="message.user.nickname == user.nickname">
+        <span class="chat-img" [class.pull-left]="message.user.nickname != user.nickname" [class.pull-right]="message.user.nickname == user.nickname">
+                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+                    	</span>
+        <div class="chat-body clearfix">
+          <div class="header">
+            <strong class="primary-font">{{message.user.nickname}}</strong>
+            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{message.date | date: 'dd/MM/yyyy HH:mm:ss'}}</small>
+          </div>
+          <p>
+            {{message.text}}
+          </p>
+        </div>
+      </li>
+      <!--<li class="right clearfix">
+        <span class="chat-img pull-right">
+                    		<img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
+                    	</span>
+        <div class="chat-body clearfix">
+          <div class="header">
+            <strong class="primary-font">Sarah</strong>
+            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales
+            at.
+          </p>
+        </div>
+      </li>
+      <li class="left clearfix">
+        <span class="chat-img pull-left">
+                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+                    	</span>
+        <div class="chat-body clearfix">
+          <div class="header">
+            <strong class="primary-font">John Doe</strong>
+            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </li>
+      <li class="right clearfix">
+        <span class="chat-img pull-right">
+                    		<img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
+                    	</span>
+        <div class="chat-body clearfix">
+          <div class="header">
+            <strong class="primary-font">Sarah</strong>
+            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales
+            at.
+          </p>
+        </div>
+      </li>
+      <li class="left clearfix">
+        <span class="chat-img pull-left">
+                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+                    	</span>
+        <div class="chat-body clearfix">
+          <div class="header">
+            <strong class="primary-font">John Doe</strong>
+            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </li>
+      <li class="right clearfix">
+        <span class="chat-img pull-right">
+                    		<img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
+                    	</span>
+        <div class="chat-body clearfix">
+          <div class="header">
+            <strong class="primary-font">Sarah</strong>
+            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales
+            at.
+          </p>
+        </div>
+      </li>
+      <li class="right clearfix">
+        <span class="chat-img pull-right">
+                    		<img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
+                    	</span>
+        <div class="chat-body clearfix">
+          <div class="header">
+            <strong class="primary-font">Sarah</strong>
+            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales
+            at.
+          </p>
+        </div>
+      </li>-->
+    </ul>
+  </div>
+  <div class="chat-box bg-white col-md-6">
+    <div class="input-group">
+      <input class="form-control border no-shadow no-rounded" [(ngModel)]="messageText" placeholder="Type your message here">
+      <span class="input-group-btn">
+            			<button class="btn btn-success no-rounded" (click)="addNewMessage()" type="button">Send</button>
+            		</span>
+    </div>
+    <!-- /input-group -->
+  </div>
+</div>
+<div class="col-md-2 bg-white ">
+  <ul class="friend-list">
+    <p>Participantes: ({{chat?.members.length}})</p>
+    <li class="bounceInDown" *ngFor="let member of chat?.members">
+      <a href="#" class="clearfix">        
+        <div class="friend-name">
+          <i class="fa fa-circle" aria-hidden="true" ></i>          
+          <strong>{{member.nickname}}</strong>
+        </div>        
+      </a>
+    </li>
+  </ul>
+</div>
