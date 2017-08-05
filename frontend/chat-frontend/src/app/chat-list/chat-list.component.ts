@@ -32,10 +32,11 @@ export class ChatListComponent implements OnInit {
     this.user = <User>this._localStorage.getObject("user");
 
     this._chatService.getChats().subscribe((res) => {
-      this.chats = <Array<Chat>>res;      
+      this.chats = <Array<Chat>>res;
 
       this.chats.forEach(chat => {
-        chat.lastMessage = chat.messages.find((item, index) => index == 0);
+        if (chat.messages != undefined)
+          chat.lastMessage = chat.messages.find((item, index) => index == 0);
       });
     });
   }
